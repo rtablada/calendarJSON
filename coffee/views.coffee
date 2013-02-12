@@ -1,5 +1,5 @@
 class Calendar.Views.Calendar extends Backbone.View
-	el: '#calendar',
+	el: '#calendar'
 
 	initialize: () ->
 		header = new Calendar.Views.Header({ model: @model }).render()
