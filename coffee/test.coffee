@@ -10,4 +10,4 @@ calendar = new Calendar.Models.Calendar
 		'Friday'
 		'Saturday']
 
-calendarView = new Calendar.Views.Calendar {model: calendar}
+calendarView = new Calendar.Views.Calendar({ model: calendar })

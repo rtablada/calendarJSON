@@ -41,7 +41,7 @@ Calendar.Views.Table = new Backbone.View.extend({
 });
 
 Calendar.Views.Calendar = new Backbone.View.extend({
-	el: '#calendar',
+	className: 'calendar',
 
 	initialize: function () {
 		header = new Calendar.Views.Header({ model: this.model }).render();
