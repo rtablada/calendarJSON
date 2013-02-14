@@ -5,13 +5,11 @@ define ['backbone', 'collections/dates', 'models/date'], (Backbone, DatesCollect
 			monthsOfYear: ['January','February','March','April','May','June','July','August','September','October','November','December']
 			today: new Date()
 			current: new Date()
-			month: new Date().getMonth()
 			days: new DatesCollection()
 
 		adjustMonth: (num) =>
 			if(@attributes.current.getDate() > 28) then @attributes.current.setDate(28)
 			@attributes.current.setMonth( @attributes.current.getMonth() + num )
-			@attributes.month = @attributes.current.getMonth()
 			@setFirstLast()
 			console.log @firstOfMonth.toString()
 

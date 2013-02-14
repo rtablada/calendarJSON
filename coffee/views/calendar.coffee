@@ -19,13 +19,16 @@ define ['models/calendar', 'views/calendarTable'], (CalendarModel, CalendarTable
 			@renderTop()
 			table = @calendarTableView.el
 			@$el.append table
+
+			# I wish there was a better way to do this b4 going on template
+			$('table').wrap('<div class="cal" />')
 			this
 
 		renderTop: ->
 			top = [
 				'<div class="top">'
 				'<button class="prev"><</button>'
-				'<h1>', @model.get('monthsOfYear')[@model.get('month')], '</h1>'
+				'<h1>', @model.get('monthsOfYear')[@model.get('current').getMonth()], '</h1>'
 				'<button class="next">></button>'
 				'</div>'
 			].join('')
