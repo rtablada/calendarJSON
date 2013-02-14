@@ -3,7 +3,13 @@ define ['models/calendar', 'views/calendarTable'], (CalendarModel, CalendarTable
 		el: '.calendar'
 
 		initialize: ->
-			@calendarTableView = new CalendarTableView( {model: @model} ).render()
+			App.Vent.on 'rerender', @updateView, this
+
+		updateView: ->
+			@model.fillDays()
+			@$el.html('')
+			console.log JSON.stringify @model.get('days').toJSON()
+			@render()
 
 		events:
 			'click .prev': 'prevCal'
@@ -16,6 +22,7 @@ define ['models/calendar', 'views/calendarTable'], (CalendarModel, CalendarTable
 			@model.adjustMonth 1
 
 		render: ->
+			@calendarTableView = new CalendarTableView( {model: @model} ).render()
 			@renderTop()
 			table = @calendarTableView.el
 			@$el.append table

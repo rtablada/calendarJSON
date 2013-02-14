@@ -11,22 +11,22 @@ define ['backbone', 'collections/dates', 'models/date'], (Backbone, DatesCollect
 			if(@attributes.current.getDate() > 28) then @attributes.current.setDate(28)
 			@attributes.current.setMonth( @attributes.current.getMonth() + num )
 			@setFirstLast()
-			console.log @firstOfMonth.toString()
+			App.Vent.trigger 'rerender'
 
 		setFirstLast: ->
 			@firstOfMonth = new Date @get('current').getFullYear(), @get('current').getMonth(), 0
 			@lastOfMonth = new Date @get('current').getFullYear(), @get('current').getMonth() + 1, 0
 
 		initialize: ->
-			firstOfMonth = new Date @get('today').getFullYear(), @get('today').getMonth(), 0
-			lastOfMonth = new Date @get('today').getFullYear(), @get('today').getMonth() + 1, 0
-			@fillDays firstOfMonth, lastOfMonth
+			@fillDays
 
-		fillDays: (firstOfMonth, lastOfMonth) ->
-			for i in [0..firstOfMonth.getDay()]
+		fillDays: () ->
+			@setFirstLast()
+			@set 'days', new DatesCollection()
+			for i in [0..@firstOfMonth.getDay()]
 				@get('days').add new DateModel
-			for i in [0...lastOfMonth.getDate()]
-				if i is @get('today').getDate then @get('days').add new DateModel({'date': i+1, 'today': true})
-				else @get('days').add new DateModel({'date': i+1})
+			for i in [0...@lastOfMonth.getDate()]
+				if i is @get('today').getDate then @get('days').add new DateModel({'date': i+1, 'month': @get('current').getMonth() + 1, 'year': @get('current').getFullYear() + 1, 'today': true})
+				else @get('days').add new DateModel({'date': i+1, 'month': @get('current').getMonth() + 1, 'year': @get('current').getFullYear() + 1})
 
 	return CalendarModel

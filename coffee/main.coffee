@@ -9,6 +9,9 @@ require.config
 		backbone: 'vendor/backbone'
 
 require ['models/calendar', 'views/calendar', 'jquery'], (CalendarModel, CalendarView)->
+	window.App =
+		Vent: _.extend({}, Backbone.Events)
+
 	calendar = new CalendarModel()
 	calendarView = new CalendarView({model: calendar}).render()
 	
