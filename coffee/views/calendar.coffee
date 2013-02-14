@@ -8,7 +8,6 @@ define ['models/calendar', 'views/calendarTable'], (CalendarModel, CalendarTable
 		updateView: ->
 			@model.fillDays()
 			@$el.html('')
-			console.log JSON.stringify @model.get('days').toJSON()
 			@render()
 
 		events:
