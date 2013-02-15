@@ -149,7 +149,18 @@ thead
 
 .cal td
 {
+	cursor: pointer;
 	text-align: center;
+}
+
+td button
+{
+	color: black;
+}
+
+td#today
+{
+	color:red;
 }
 
 ul li

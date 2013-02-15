@@ -26,9 +26,8 @@ define ['backbone', 'collections/dates', 'models/date'], (Backbone, DatesCollect
 			for i in [0...@firstOfMonth.getDay()]
 				@get('days').add new DateModel
 			for i in [1..@lastOfMonth.getDate()]
-				if i is @get('today').getDate then @get('days').add new DateModel({
-					'date': new Date @get('current').getFullYear(), @get('current').getMonth(), i
-					'today': true})
+				if i is @get('today').getDate()
+					@get('days').add new DateModel({'date': new Date( @get('current').getFullYear(), @get('current').getMonth(), i), 'today': true})
 				else @get('days').add new DateModel({'date': new Date @get('current').getFullYear(), @get('current').getMonth(), i})
 
 	return CalendarModel

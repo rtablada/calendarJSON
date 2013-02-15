@@ -3,10 +3,10 @@ define ['views/date', 'backbone'], (DateView) ->
 		tagName: 'tr'
 
 		render: ->
-			@collection.each @.addOne this
+			@collection.each @.addOne
 			this
 
-		addOne: (date) ->
+		addOne: (date) =>
 			dateView = new DateView({ model:date }).render()
 			@$el.append dateView.el
 

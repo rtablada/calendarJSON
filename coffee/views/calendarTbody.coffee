@@ -7,12 +7,12 @@ define ['backbone', 'views/datesCollection', 'collections/dates'], (Backbone, Da
 
 		render: ->
 			days = @model.get 'days'
-			for i in [0..days.length] by 7
+			for i in [0..days.length/7]
 				week = new DatesCollection()
-				for x in [0..6]
-					week.add days.at i
-					datesCollectionView = new DatesCollectionView({ collection: week}).render()
-					@el.append datesCollectionView.el
+				for x in [i*7...i*7+7]
+					week.add days.at x
+				datesCollectionView = new DatesCollectionView({ collection: week}).render()
+				@$el.append datesCollectionView.el
 			this
 
 	return CalendarTbody

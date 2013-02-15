@@ -1,8 +1,10 @@
-# JSON Calendar
+# Backbone Calendar
+This is a RequireJS powered calendar and appointments app that I am building for my own site and wanted to share with the community! It is still a work in progress and eventually will have a compiled js file in the master branch!
 
-This calendar collection is built based on the Code Igniter Calendar Library.
-However instead of outputting HTML, the class is meant to output JSON data to be used in RESTful APIs.
+##Credits
+The CSS is a pull from Orman Clark's premium pixels.
 
-### Development
-This is currently in active development and I am working to create the Backbone.JS application to determine formatting for the PHP library.
-I am currently running into an issue with my Backbone in creating my views.
+The Notepads come from [Little Notepad Design](http://www.premiumpixels.com/freebies/little-notepad-design-psd/)
+The backer comes from [Image Fram Slider Thingy](http://www.premiumpixels.com/freebies/image-frame-slider-thingy-ma-bob/)
+
+A thank-you goes out to (Nora Brown)[http://www.norabrowndesign.com] for her article explaining CSS Border-Image for the backer board border.
