@@ -1,2 +1,2 @@
-<?php `git pull`;
-echo 'done';
+<?php 
+echo `git pull`;
