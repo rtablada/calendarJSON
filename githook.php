@@ -1,2 +1,2 @@
 <?php 
-echo `git pull`;
+echo `cd /var/www && git pull`;
