@@ -1,6 +1,10 @@
 {
 	"jam": {
 		"packageDir": "js/vendor",
-		"baseUrl": "js"
+		"baseUrl": "js",
+		"dependencies": {
+			"jquery": "*",
+			"backbone": "*"
+		}
 	}
 }
